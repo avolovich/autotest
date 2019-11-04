@@ -2,6 +2,7 @@ package com;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class DriverSingleton {
@@ -22,7 +23,7 @@ public class DriverSingleton {
 
     public static WebDriverWait getWebDriverWait() {
         if (wait==null) {
-            wait = new WebDriverWait(getChromeDriver(),5);
+              wait = new WebDriverWait(getChromeDriver(),5);
         }
         return wait;
     }
