@@ -1,15 +1,20 @@
 package com.tests.login;
 import com.DataContext;
 import com.dto.ClientUser;
+import com.sun.xml.internal.bind.v2.runtime.reflect.Lister;
 import com.tests.BaseTest;
 import com.ui.pages.home.HomePage;
 import com.ui.pages.login.Locale;
 import com.ui.pages.login.LoginPage;
 import com.utils.CsvReader;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -17,14 +22,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.DataContext.getData;
+import static com.DriverSingleton.getChromeDriver;
 import static com.ui.pages.home.HomePage.getHomePage;
 import static com.ui.pages.login.LoginPage.getLoginPage;
 
+@Test(groups = "login")
 public class LoginTest extends BaseTest {
 
+    WebDriver driver = getChromeDriver();
     LoginPage loginPage = getLoginPage();
     HomePage homePage = getHomePage();
     ApplicationContext data = getData();
+
+    @BeforeMethod
+    public void login() {
+        driver.manage().deleteAllCookies();
+        driver.get("http://localhost:8080/jasperserver");
+    }
 
     @DataProvider(name = "locales")
     public Object[][] locales() {
@@ -45,21 +59,7 @@ public class LoginTest extends BaseTest {
             result[i][0] = currentUser;
             i++;
         }
-//        for(String userBean: userBeans) {
-//            currentUser = data.getBean(userBean, ClientUser.class);
-//            result[i][0] = currentUser.getUsername();
-//            result[i][1] = currentUser.getPassword();
-//            result[i][2] = currentUser.getFullName();
-//            i++;
-//        }
         return result;
-
-//        return new Object[][]
-//                {
-//                        {"jasperadmin", "jasperadmin"}, {"joeuser", "joeuser"},
-//                        {"anonymousUser", "anonymousUser"}, {"test1", "1"},
-//                        {"test2", "2"}, {"test3", "3"}
-//                };
     }
 
 

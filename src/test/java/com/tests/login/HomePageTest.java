@@ -13,6 +13,8 @@ import static com.DataContext.getData;
 import static com.ui.pages.home.HomePage.getHomePage;
 import static com.ui.pages.login.LoginPage.getLoginPage;
 
+
+@Test
 public class HomePageTest extends BaseTest {
 
     LoginPage loginPage = getLoginPage();
@@ -26,29 +28,16 @@ public class HomePageTest extends BaseTest {
         homePage.verify().userLoggedIn(jasperadmin);
     }
 
-    @Test
-    public void openDataSourcesFolder() {
-        homePage.act()
-                .openRepository()
-                .localeDataSources();
-    }
-
-    @Test
-    public void openSearchResults() {
-//        homePage.act()
-//                .openSearchResultsNoPageFactory();
-
+    public void openSeachResultsPage() {
         homePage.act()
                 .openSearchResults();
+    }
 
+    public void openRepositoryPage() {
         homePage.act()
                 .openRepository();
-
-        homePage.act()
-                .openSchedules();
-
-        homePage.act()
-                .openMessages();
     }
+
+
 }
 

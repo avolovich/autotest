@@ -26,7 +26,7 @@ public class HomePageVerifyController {
 
 
     public HomePageVerifyController() {
-        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 10),  this);
+        PageFactory.initElements(new AjaxElementLocatorFactory(driver, 5),  this);
     }
 
     public HomePageVerifyController userLoggedIn(ClientUser user) {
