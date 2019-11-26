@@ -28,9 +28,8 @@ public class RepositoryExplorerTests extends BaseTest {
     RepoExplorerPage repoPage = getRepoExplorerPage();
     ApplicationContext data = getData();
 
-//    @Test(groups = "repository")
+    @Test(groups = "repository", description = "Create new folder with random name under Reports folder")
     public void createFolderInReportsFolder() {
-        homePage = getHomePage();
         homePage = getHomePage();
         Folder newFolder = data.getBean("randomFolder", Folder.class);
         Folder parentFolder = data.getBean("parentFolder", Folder.class);
@@ -38,6 +37,8 @@ public class RepositoryExplorerTests extends BaseTest {
                 .openRepository();
         repoPage.act()
                 .addFolder(parentFolder, newFolder);
+        repoPage.verify()
+                .folderCreated(newFolder);
 
     }
 

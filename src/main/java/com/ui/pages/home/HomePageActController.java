@@ -13,14 +13,14 @@ import org.springframework.context.ApplicationContext;
 import org.testng.Assert;
 
 import static com.DataContext.getData;
-import static com.DriverSingleton.getChromeDriver;
-import static com.DriverSingleton.getWebDriverWait;
+import static com.ChromeDriverProvider.getChromeDriver;
+import static com.ChromeDriverProvider.getChromeDriverWait;
 import static com.utils.TestUtils.waitForPageLoad;
 
 public class HomePageActController {
 
     private WebDriver driver = getChromeDriver();
-    private WebDriverWait wait = getWebDriverWait();
+    private WebDriverWait wait = getChromeDriverWait();
     ApplicationContext data = getData();
 
     private static final String searchResults = "Search Results";

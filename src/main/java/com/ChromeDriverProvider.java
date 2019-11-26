@@ -8,12 +8,12 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 
-public class DriverSingleton {
+public class ChromeDriverProvider {
 
     private static WebDriver driver;
     private static WebDriverWait wait;
 
-    private DriverSingleton() {
+    private ChromeDriverProvider() {
         // hide it
     }
 
@@ -24,7 +24,7 @@ public class DriverSingleton {
         return driver;
     }
 
-    public static WebDriverWait getWebDriverWait() {
+    public static WebDriverWait getChromeDriverWait() {
         if (wait==null) {
               wait = new WebDriverWait(getChromeDriver(),5);
         }

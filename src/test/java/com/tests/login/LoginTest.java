@@ -1,28 +1,17 @@
 package com.tests.login;
-import com.DataContext;
 import com.dto.ClientUser;
-import com.sun.xml.internal.bind.v2.runtime.reflect.Lister;
 import com.tests.BaseTest;
 import com.ui.pages.home.HomePage;
 import com.ui.pages.login.Locale;
 import com.ui.pages.login.LoginPage;
-import com.utils.CsvReader;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static com.DataContext.getData;
-import static com.DriverSingleton.getChromeDriver;
+import static com.ChromeDriverProvider.getChromeDriver;
 import static com.ui.pages.home.HomePage.getHomePage;
 import static com.ui.pages.login.LoginPage.getLoginPage;
 
@@ -63,7 +52,7 @@ public class LoginTest extends BaseTest {
     }
 
 
-    @Test(dataProvider = "locales")
+    @Test(dataProvider = "locales", description = "Login by different locales")
     public void canLoginByDifferentLocales(Locale locale)  {
         loginPage.act().enterUserId("jasperadmin")
                 .enterPassword("jasperadmin")
@@ -72,15 +61,7 @@ public class LoginTest extends BaseTest {
                 .clickLogin();
     }
 
-    @Test(dataProvider = "credentials")
-    public void canLoginWithCorrectCredentials(String username, String password)  {
-        loginPage.act().enterUserId(username)
-                .enterPassword(password)
-                .showLocaleTimeZone()
-                .clickLogin();
-    }
-
-    @Test(dataProvider = "credentials")
+    @Test(dataProvider = "credentials", description = "Login by user")
     public void loginByUsers(ClientUser user) {
         loginPage.act().loginByUser(user);
         homePage.verify().userLoggedIn(user);

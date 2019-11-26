@@ -15,10 +15,10 @@ public class TestFoldersData {
     public Folder randomFolder()
     {
         Folder folder = new Folder();
-//        String suffix5 = ResourceUtils.generateRandomSuffix(5);
-//        String suffix20 = ResourceUtils.generateRandomSuffix(20);
-        String suffix5 = "blabla";
-        String suffix20 = "blablablabla";
+        String suffix5 = ResourceUtils.generateRandomSuffix(5);
+        String suffix20 = ResourceUtils.generateRandomSuffix(20);
+//        String suffix5 = "blabla";
+//        String suffix20 = "blablablabla";
         folder.setName(prefix+suffix5);
         folder.setDescription(prefix+suffix20);
         return folder;

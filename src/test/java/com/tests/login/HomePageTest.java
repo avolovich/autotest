@@ -28,11 +28,13 @@ public class HomePageTest extends BaseTest {
         homePage.verify().userLoggedIn(jasperadmin);
     }
 
+    @Test
     public void openSeachResultsPage() {
         homePage.act()
                 .openSearchResults();
     }
 
+    @Test
     public void openRepositoryPage() {
         homePage.act()
                 .openRepository();

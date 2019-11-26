@@ -1,7 +1,7 @@
 package com.ui.pages.repository.explorer;
 
 import com.dto.resources.Folder;
-import com.utils.TestUtils;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,15 +15,15 @@ import org.springframework.context.ApplicationContext;
 import org.testng.Assert;
 
 import static com.DataContext.getData;
-import static com.DriverSingleton.getChromeDriver;
-import static com.DriverSingleton.getWebDriverWait;
+import static com.ChromeDriverProvider.getChromeDriver;
+import static com.ChromeDriverProvider.getChromeDriverWait;
 import static com.ui.pages.repository.explorer.RepoExplorerWaits.waitForAddFolderDialogToBeLoaded;
 import static com.utils.TestUtils.waitForPageLoad;
 
 public class RepoExplorerAct {
 
     WebDriver driver = getChromeDriver();
-    WebDriverWait wait = getWebDriverWait();
+    WebDriverWait wait = getChromeDriverWait();
     ApplicationContext data = getData();
 
     @FindBy(id="menuList") WebElement menu;
@@ -46,6 +46,7 @@ public class RepoExplorerAct {
         return this;
     }
 
+    @Step("Move mouse to folder Reports and open context menu")
     private RepoExplorerAct moveToFolder(Folder parent) {
         String folderName = parent.getName();
             // Looking for parent folder in root node by text
@@ -61,6 +62,7 @@ public class RepoExplorerAct {
         return this;
     }
 
+    @Step("Open context menu item - Add Folder")
     private RepoExplorerAct contextMenuAddFolderClick() {
         WebElement item = driver.findElement(By.xpath("//*[@id='menuList']/li/p[contains(., 'Add Folder')]"));
         new Actions(driver).moveToElement(item).click(item).perform();
@@ -68,6 +70,7 @@ public class RepoExplorerAct {
         return this;
     }
 
+    @Step("Fill in folder name and description with random data")
     private RepoExplorerAct fillInFolderData(Folder sub) {
         WebElement addFolderInputName = addFolderDialog.findElement(By.id("addFolderInputName"));
         WebElement addFolderInputDescription = addFolderDialog.findElement(By.id("addFolderInputDescription"));
@@ -81,6 +84,7 @@ public class RepoExplorerAct {
         return this;
     }
 
+    @Step("Click Finish to apply data and create the folder")
     private RepoExplorerAct clickAddFolderBtn() {
         addFolderBtnAdd.click();
         waitForPageLoad();

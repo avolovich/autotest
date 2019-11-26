@@ -6,13 +6,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static com.DriverSingleton.getChromeDriver;
-import static com.DriverSingleton.getWebDriverWait;
+import static com.ChromeDriverProvider.getChromeDriver;
+import static com.ChromeDriverProvider.getChromeDriverWait;
 
 public class RepoExplorerWaits {
 
     static WebDriver driver = getChromeDriver();
-    static WebDriverWait wait = getWebDriverWait();
+    static WebDriverWait wait = getChromeDriverWait();
 
     public static void waitForAddFolderDialogToBeLoaded() {
         WebElement body = driver.findElement(By.tagName("body"));

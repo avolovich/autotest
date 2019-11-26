@@ -13,8 +13,8 @@ import org.springframework.context.ApplicationContext;
 import java.util.NoSuchElementException;
 
 import static com.DataContext.getData;
-import static com.DriverSingleton.getChromeDriver;
-import static com.DriverSingleton.getWebDriverWait;
+import static com.ChromeDriverProvider.getChromeDriver;
+import static com.ChromeDriverProvider.getChromeDriverWait;
 
 // Class where we defined actions made over Login Page, e.g. enter some data into fields, click buttons,
 // select values from comboboxes
@@ -22,7 +22,7 @@ import static com.DriverSingleton.getWebDriverWait;
 public class LoginActController {
 
     WebDriver driver = getChromeDriver();
-    WebDriverWait wait = getWebDriverWait();
+    WebDriverWait wait = getChromeDriverWait();
     ApplicationContext data = getData();
 
     @FindBy(id = "j_username") WebElement userField;
