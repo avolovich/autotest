@@ -1,5 +1,7 @@
 package com.ui.pages.repository.explorer;
 
+import java.io.IOException;
+
 public class RepoExplorerPage {
 
     private RepoExplorerAct act;

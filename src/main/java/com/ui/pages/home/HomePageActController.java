@@ -1,5 +1,6 @@
 package com.ui.pages.home;
 
+import com.driver.DriverProvider;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,15 +13,15 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.context.ApplicationContext;
 import org.testng.Assert;
 
+import java.io.IOException;
+
 import static com.DataContext.getData;
-import static com.ChromeDriverProvider.getChromeDriver;
-import static com.ChromeDriverProvider.getChromeDriverWait;
 import static com.utils.TestUtils.waitForPageLoad;
 
 public class HomePageActController {
 
-    private WebDriver driver = getChromeDriver();
-    private WebDriverWait wait = getChromeDriverWait();
+    private WebDriver driver = DriverProvider.getDriver();
+    private WebDriverWait wait =  DriverProvider.getWait();
     ApplicationContext data = getData();
 
     private static final String searchResults = "Search Results";

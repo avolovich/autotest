@@ -9,13 +9,15 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
+
 import static com.DataContext.getData;
 import static com.ui.pages.home.HomePage.getHomePage;
 import static com.ui.pages.login.LoginPage.getLoginPage;
 
 
 @Test
-public class HomePageTest extends BaseTest {
+public class HomePageTest extends BaseTest  {
 
     LoginPage loginPage = getLoginPage();
     HomePage homePage = getHomePage();

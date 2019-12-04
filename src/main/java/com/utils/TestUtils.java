@@ -1,21 +1,21 @@
 package com.utils;
 
+import com.driver.DriverProvider;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.springframework.stereotype.Component;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import static com.ChromeDriverProvider.getChromeDriver;
-import static com.ChromeDriverProvider.getChromeDriverWait;
-
-@Component
 public class TestUtils {
 
-    WebDriver driver = getChromeDriver();
-    static WebDriverWait wait = getChromeDriverWait();
+    private WebDriver driver = DriverProvider.getDriver();
+    static private WebDriverWait wait =  DriverProvider.getWait();
+
+    public TestUtils() throws IOException {
+    }
 
     public static void explicitWait(long milliseconds) {
         try {

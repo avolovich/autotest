@@ -13,6 +13,8 @@ import org.testng.annotations.BeforeGroups;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
+
 import static com.DataContext.getData;
 import static com.ui.pages.home.HomePage.getHomePage;
 import static com.ui.pages.login.LoginPage.getLoginPage;
@@ -22,6 +24,7 @@ import static com.ui.pages.repository.explorer.RepoExplorerPage.getRepoExplorerP
 
 public class RepositoryExplorerTests extends BaseTest {
 
+    public RepositoryExplorerTests() {}
 
     LoginPage loginPage = getLoginPage();
     HomePage homePage = getHomePage();

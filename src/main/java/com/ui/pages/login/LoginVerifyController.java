@@ -1,16 +1,16 @@
 package com.ui.pages.login;
 
+import com.driver.DriverProvider;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import static com.ChromeDriverProvider.getChromeDriver;
-import static com.ChromeDriverProvider.getChromeDriverWait;
+import java.io.IOException;
 
 public class LoginVerifyController {
-    WebDriver driver = getChromeDriver();
-    WebDriverWait wait = getChromeDriverWait();
+    private WebDriver driver = DriverProvider.getDriver();
+    private WebDriverWait wait =  DriverProvider.getWait();
 
 
-
-
+    public LoginVerifyController() {
+    }
 }

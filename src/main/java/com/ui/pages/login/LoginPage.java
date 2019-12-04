@@ -3,6 +3,8 @@ package com.ui.pages.login;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.io.IOException;
+
 public class LoginPage {
     private LoginActController act;
     private LoginVerifyController verify;
@@ -15,7 +17,7 @@ public class LoginPage {
         this.verify = verify;
     }
 
-    public static LoginPage getLoginPage() {
+    public static LoginPage getLoginPage()  {
         return new LoginPage(new LoginActController(), new LoginVerifyController());
     }
 }

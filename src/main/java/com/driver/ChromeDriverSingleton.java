@@ -1,4 +1,4 @@
-package com;
+package com.driver;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -7,26 +7,26 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
+public class ChromeDriverSingleton implements IWebDriver{
 
-public class ChromeDriverProvider {
-
+    public static final ChromeDriverSingleton instance = new ChromeDriverSingleton();
     private static WebDriver driver;
     private static WebDriverWait wait;
 
-    private ChromeDriverProvider() {
+    private ChromeDriverSingleton() {
         // hide it
     }
 
-    public static WebDriver getChromeDriver() {
+    public WebDriver getWebDriver() {
         if (driver==null) {
             driver = new ChromeDriver();
         }
         return driver;
     }
 
-    public static WebDriverWait getChromeDriverWait() {
+    public WebDriverWait getWebDriverWait() {
         if (wait==null) {
-              wait = new WebDriverWait(getChromeDriver(),5);
+            wait = new WebDriverWait(getWebDriver(),5);
         }
         return wait;
     }

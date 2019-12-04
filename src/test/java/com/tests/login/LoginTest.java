@@ -1,4 +1,5 @@
 package com.tests.login;
+import com.driver.DriverProvider;
 import com.dto.ClientUser;
 import com.tests.BaseTest;
 import com.ui.pages.home.HomePage;
@@ -10,15 +11,16 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
+
 import static com.DataContext.getData;
-import static com.ChromeDriverProvider.getChromeDriver;
 import static com.ui.pages.home.HomePage.getHomePage;
 import static com.ui.pages.login.LoginPage.getLoginPage;
 
 @Test(groups = "login")
 public class LoginTest extends BaseTest {
 
-    WebDriver driver = getChromeDriver();
+    WebDriver driver = DriverProvider.getDriver();
     LoginPage loginPage = getLoginPage();
     HomePage homePage = getHomePage();
     ApplicationContext data = getData();

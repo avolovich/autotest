@@ -4,7 +4,7 @@ import net.bytebuddy.implementation.bytecode.Throw;
 
 import java.io.IOException;
 
-public class propertiesFileAccessException extends IOException {
+public class propertiesFileAccessException extends RuntimeException {
 
     public propertiesFileAccessException(String path, Throwable reason) {
         super("Error accessing properties file location: "+path, reason);

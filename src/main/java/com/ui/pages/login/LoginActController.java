@@ -1,5 +1,6 @@
 package com.ui.pages.login;
 
+import com.driver.DriverProvider;
 import com.dto.ClientUser;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,19 +11,18 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.context.ApplicationContext;
 
+import java.io.IOException;
 import java.util.NoSuchElementException;
 
 import static com.DataContext.getData;
-import static com.ChromeDriverProvider.getChromeDriver;
-import static com.ChromeDriverProvider.getChromeDriverWait;
 
 // Class where we defined actions made over Login Page, e.g. enter some data into fields, click buttons,
 // select values from comboboxes
 
 public class LoginActController {
 
-    WebDriver driver = getChromeDriver();
-    WebDriverWait wait = getChromeDriverWait();
+    WebDriver driver = DriverProvider.getDriver();
+    WebDriverWait wait = DriverProvider.getWait();
     ApplicationContext data = getData();
 
     @FindBy(id = "j_username") WebElement userField;
@@ -31,7 +31,7 @@ public class LoginActController {
     @FindBy(id = "userLocale") WebElement localeDropDown;
     @FindBy(id = "submitButton") WebElement loginButton;
 
-    public LoginActController() {
+    public LoginActController()  {
 //        PageFactory.initElements(driver, this);
 //        AjaxElementLocatorFactory factory = new AjaxElementLocatorFactory(driver, 100);
 //        PageFactory.initElements(factory, this);
@@ -83,10 +83,5 @@ public class LoginActController {
     public void clickLogin() {
         loginButton.click();
     }
-
-
-
-
-
 
 }

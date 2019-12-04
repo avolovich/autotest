@@ -1,6 +1,8 @@
 package com.tests;
 
 import com.data.CommonProperties;
+import com.driver.DriverProvider;
+import com.data.CommonProperties.*;
 import com.dto.ClientUser;
 import com.exceptions.propertiesFileAccessException;
 import com.ui.pages.home.HomePage;
@@ -15,9 +17,6 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import static com.DataContext.getData;
-import static com.ChromeDriverProvider.getChromeDriver;
-import static com.ChromeDriverProvider.getChromeDriverWait;
-import static com.data.CommonProperties.getCommonProperties;
 import static com.ui.pages.home.HomePage.getHomePage;
 import static com.ui.pages.login.LoginPage.getLoginPage;
 
@@ -32,19 +31,19 @@ public class BaseTest  {
     CommonProperties commonProperties;
     String JRS_URL;
 
-    @BeforeSuite
-    public void startUp() throws IOException {
-        driver = getChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-        wait = getChromeDriverWait();
-        try {
-            commonProperties = getCommonProperties();
-            JRS_URL = commonProperties.getJrsUrl();
-        } catch (IOException e) {
-            throw new propertiesFileAccessException(e);
-        }
+    public BaseTest() {
+    }
 
+    @BeforeSuite
+    public void startUp() {
+        driver = DriverProvider.getDriver();
+        wait =  DriverProvider.getWait();
+        commonProperties = CommonProperties.getInstance();
+        JRS_URL = commonProperties.getJrsUrl();
+    //        driver = getChromeDriver();
+    //        wait = getChromeDriverWait();
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @BeforeGroups("repository")
@@ -57,12 +56,6 @@ public class BaseTest  {
         loginPage.act().loginByUser(jasperadmin);
         homePage.verify().userLoggedIn(jasperadmin);
     }
-
-//    @BeforeMethod
-//    public void goToHome() {
-//        driver.manage().deleteAllCookies();
-//        driver.get("http://localhost:8080/jasperserver");
-//    }
 
     @AfterMethod
     public void logOut() {

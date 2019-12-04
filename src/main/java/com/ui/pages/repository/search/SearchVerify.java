@@ -1,24 +1,22 @@
 package com.ui.pages.repository.search;
 
+import com.driver.DriverProvider;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.springframework.context.ApplicationContext;
 
-import static com.DataContext.getData;
-import static com.ChromeDriverProvider.getChromeDriver;
-import static com.ChromeDriverProvider.getChromeDriverWait;
+import java.io.IOException;
+
 
 public class SearchVerify {
 
-    WebDriver driver = getChromeDriver();
-    WebDriverWait wait = getChromeDriverWait();
-    ApplicationContext data = getData();
+    private WebDriver driver = DriverProvider.getDriver();
+    private WebDriverWait wait =  DriverProvider.getWait();
 
-    public SearchVerify() {
+    public SearchVerify() throws IOException {
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, 10), this);
     }
 

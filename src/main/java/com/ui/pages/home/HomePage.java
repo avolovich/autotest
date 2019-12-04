@@ -1,5 +1,7 @@
 package com.ui.pages.home;
 
+import java.io.IOException;
+
 public class HomePage {
 
     private HomePageActController act;
@@ -13,7 +15,7 @@ public class HomePage {
         this.verify = verify;
     }
 
-    public static HomePage getHomePage() {
+    public static HomePage getHomePage()  {
         return new HomePage(new HomePageActController(), new HomePageVerifyController());
     }
 }
