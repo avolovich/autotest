@@ -22,11 +22,11 @@ public class IEDriverSingleton implements IWebDriver{
         if (driver==null) {
             DesiredCapabilities caps = new DesiredCapabilities();
 //            caps.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, true);
-//            caps.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
-            DesiredCapabilities ieCapabilities=DesiredCapabilities.internetExplorer();
-//            ieCapabilities.setCapability(InternetExplorerDriver
+            //            ieCapabilities.setCapability(InternetExplorerDriver
 //                    .INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true);
 //            ieCapabilities.setCapability("requireWindowFocus", true);
+
+            DesiredCapabilities ieCapabilities=DesiredCapabilities.internetExplorer();
             driver = new InternetExplorerDriver(ieCapabilities);
             System.out.println(((HasCapabilities) driver).getCapabilities());
         }
