@@ -27,6 +27,10 @@ public class DriverProvider {
                 driver = FirefoxDriverSingleton.instance.getWebDriver();
                 wait = FirefoxDriverSingleton.instance.getWebDriverWait();
                 break;
+            case "iexplorer" :
+                driver = IEDriverSingleton.instance.getWebDriver();
+                wait = IEDriverSingleton.instance.getWebDriverWait();
+                break;
             default:
                 System.out.println("No suitable driver corresponds to "+webdriver+" set under properties: "+ CommonProperties.getInstance().getAbsolutePath()
                         +". Available values are: chrome, firefox. Taking default settings (Chrome)");

@@ -1,0 +1,4 @@
+com\tests\login\LoginTest.class
+com\tests\repository\explorer\RepositoryExplorerTests.class
+com\tests\BaseTest.class
+com\tests\login\HomePageTest.class

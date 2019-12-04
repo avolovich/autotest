@@ -1,7 +1,9 @@
 package com.driver;
 
+import org.openqa.selenium.HasCapabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.context.annotation.ComponentScan;
@@ -20,6 +22,7 @@ public class ChromeDriverSingleton implements IWebDriver{
     public WebDriver getWebDriver() {
         if (driver==null) {
             driver = new ChromeDriver();
+            System.out.println(((HasCapabilities) driver).getCapabilities());
         }
         return driver;
     }
