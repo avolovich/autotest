@@ -1,10 +1,8 @@
 package com.tests;
 
-import com.data.CommonProperties;
+import com.data.settings.CommonProperties;
 import com.driver.DriverProvider;
-import com.data.CommonProperties.*;
-import com.dto.ClientUser;
-import com.exceptions.propertiesFileAccessException;
+import com.dto.User;
 import com.ui.pages.home.HomePage;
 import com.ui.pages.login.LoginPage;
 import io.qameta.allure.Step;
@@ -13,10 +11,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.context.ApplicationContext;
 import org.testng.annotations.*;
 
-import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import static com.DataContext.getData;
+import static com.data.DataContext.getData;
 import static com.ui.pages.home.HomePage.getHomePage;
 import static com.ui.pages.login.LoginPage.getLoginPage;
 
@@ -52,7 +49,7 @@ public class BaseTest  {
         driver.manage().deleteAllCookies();
         // driver.get("http://localhost:8080/jasperserver");
         driver.get(JRS_URL);
-        ClientUser jasperadmin = data.getBean("jasperadmin", ClientUser.class);
+        User jasperadmin = data.getBean("jasperadmin", User.class);
         loginPage.act().loginByUser(jasperadmin);
         homePage.verify().userLoggedIn(jasperadmin);
     }

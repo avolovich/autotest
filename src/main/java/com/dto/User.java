@@ -1,6 +1,6 @@
 package com.dto;
 
-public class ClientUser {
+public class User {
     private String username;
     private String password;
     private String fullName;
@@ -10,7 +10,7 @@ public class ClientUser {
         return username;
     }
 
-    public ClientUser setUsername(String username) {
+    public User setUsername(String username) {
         this.username = username;
         return this;
     }
@@ -20,7 +20,7 @@ public class ClientUser {
         return password;
     }
 
-    public ClientUser setPassword(String password) {
+    public User setPassword(String password) {
         this.password = password;
         return this;
     }
@@ -29,7 +29,7 @@ public class ClientUser {
         return fullName;
     }
 
-    public ClientUser setFullName(String fullName) {
+    public User setFullName(String fullName) {
         this.fullName = fullName;
         return this;
     }
@@ -38,7 +38,7 @@ public class ClientUser {
         return tenantId;
     }
 
-    public ClientUser setTenantId(String tenantId) {
+    public User setTenantId(String tenantId) {
         this.tenantId = tenantId;
         return this;
     }

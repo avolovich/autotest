@@ -13,10 +13,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.context.ApplicationContext;
 import org.testng.Assert;
 
-import java.io.IOException;
-
-import static com.DataContext.getData;
-import static com.utils.TestUtils.waitForPageLoad;
+import static com.data.DataContext.getData;
+import static com.ui.CustomWaits.waitForPageLoad;
 
 public class HomePageActController {
 

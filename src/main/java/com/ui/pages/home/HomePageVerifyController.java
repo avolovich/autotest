@@ -1,7 +1,7 @@
 package com.ui.pages.home;
 
 import com.driver.DriverProvider;
-import com.dto.ClientUser;
+import com.dto.User;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,11 +10,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.context.ApplicationContext;
-import org.testng.Assert;
 
-import java.io.IOException;
-
-import static com.DataContext.getData;
+import static com.data.DataContext.getData;
 
 public class HomePageVerifyController {
 
@@ -32,7 +29,7 @@ public class HomePageVerifyController {
         PageFactory.initElements(driver,  this);
     }
 
-    public HomePageVerifyController userLoggedIn(ClientUser user) {
+    public HomePageVerifyController userLoggedIn(User user) {
         wait.until(ExpectedConditions.presenceOfElementLocated(By.tagName("body")));
 //        WebElement menu = driver.findElement(mainMenu);
 //        wait.until(ExpectedConditions.visibilityOf(mainMenuContainer));

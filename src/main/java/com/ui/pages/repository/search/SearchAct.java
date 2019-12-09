@@ -9,7 +9,7 @@ import org.springframework.context.ApplicationContext;
 
 import java.io.IOException;
 
-import static com.DataContext.getData;
+import static com.data.DataContext.getData;
 
 public class SearchAct {
 

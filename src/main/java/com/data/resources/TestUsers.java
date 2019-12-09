@@ -1,15 +1,15 @@
-package com.data;
+package com.data.resources;
 
-import com.dto.ClientUser;
+import com.dto.User;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class UsersTestData {
+public class TestUsers {
 
     @Bean(name="joeuser")
-    public ClientUser joeuser() {
-        return new ClientUser()
+    public User joeuser() {
+        return new User()
                 .setFullName("Joe User")
                 .setUsername("joeuser")
                 .setPassword("joeuser");
@@ -17,24 +17,24 @@ public class UsersTestData {
 
 
     @Bean(name="jasperadmin")
-    public ClientUser jasperadmin() {
-        return new ClientUser()
+    public User jasperadmin() {
+        return new User()
                 .setFullName("jasperadmin User")
                 .setUsername("jasperadmin")
                 .setPassword("jasperadmin");
     }
 
     @Bean(name="anonymousUser")
-    public ClientUser anonymousUser() {
-        return new ClientUser()
+    public User anonymousUser() {
+        return new User()
                 .setFullName("anonymousUser User")
                 .setUsername("anonymousUser")
                 .setPassword("1");
     }
 
     @Bean(name="test1")
-    public ClientUser test1() {
-        return new ClientUser()
+    public User test1() {
+        return new User()
                 .setFullName("test1")
                 .setUsername("test1")
                 .setPassword("1");

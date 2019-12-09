@@ -1,17 +1,13 @@
 package com.tests.login;
-import com.dto.ClientUser;
+import com.dto.User;
 import com.tests.BaseTest;
 import com.ui.pages.home.HomePage;
-import com.ui.pages.login.Locale;
 import com.ui.pages.login.LoginPage;
 import org.springframework.context.ApplicationContext;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.io.IOException;
-
-import static com.DataContext.getData;
+import static com.data.DataContext.getData;
 import static com.ui.pages.home.HomePage.getHomePage;
 import static com.ui.pages.login.LoginPage.getLoginPage;
 
@@ -25,7 +21,7 @@ public class HomePageTest extends BaseTest  {
 
     @BeforeMethod
     public void loginAsJasperadmin() {
-        ClientUser jasperadmin = data.getBean("jasperadmin", ClientUser.class);
+        User jasperadmin = data.getBean("jasperadmin", User.class);
         loginPage.act().loginByUser(jasperadmin);
         homePage.verify().userLoggedIn(jasperadmin);
     }

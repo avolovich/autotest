@@ -1,4 +1,4 @@
-package com.data.utils;
+package com.utils;
 
 public class ResourceUtils {
 

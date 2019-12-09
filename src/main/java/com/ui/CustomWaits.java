@@ -1,4 +1,4 @@
-package com.utils;
+package com.ui;
 
 import com.driver.DriverProvider;
 import org.openqa.selenium.*;
@@ -9,12 +9,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-public class TestUtils {
+public class CustomWaits {
 
     private WebDriver driver = DriverProvider.getDriver();
     static private WebDriverWait wait =  DriverProvider.getWait();
 
-    public TestUtils() throws IOException {
+    public CustomWaits() throws IOException {
     }
 
     public static void explicitWait(long milliseconds) {

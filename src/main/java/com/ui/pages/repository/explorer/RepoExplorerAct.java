@@ -1,7 +1,7 @@
 package com.ui.pages.repository.explorer;
 
 import com.driver.DriverProvider;
-import com.dto.resources.Folder;
+import com.dto.Folder;
 import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,11 +15,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.context.ApplicationContext;
 import org.testng.Assert;
 
-import java.io.IOException;
-
-import static com.DataContext.getData;
+import static com.data.DataContext.getData;
 import static com.ui.pages.repository.explorer.RepoExplorerWaits.waitForAddFolderDialogToBeLoaded;
-import static com.utils.TestUtils.waitForPageLoad;
+import static com.ui.CustomWaits.waitForPageLoad;
 
 public class RepoExplorerAct {
 

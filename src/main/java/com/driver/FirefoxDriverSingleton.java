@@ -22,7 +22,9 @@ public class FirefoxDriverSingleton implements IWebDriver {
     @Override
     public WebDriver getWebDriver() {
         if (driver==null) {
-            driver = new FirefoxDriver();
+            DesiredCapabilities caps = new DesiredCapabilities();
+            caps.setCapability(FirefoxDriver.MARIONETTE, false);
+            driver = new FirefoxDriver(caps);
             System.out.println(((HasCapabilities) driver).getCapabilities());
         }
         return driver;

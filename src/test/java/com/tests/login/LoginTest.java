@@ -1,6 +1,6 @@
 package com.tests.login;
 import com.driver.DriverProvider;
-import com.dto.ClientUser;
+import com.dto.User;
 import com.tests.BaseTest;
 import com.ui.pages.home.HomePage;
 import com.ui.pages.login.Locale;
@@ -11,9 +11,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.io.IOException;
-
-import static com.DataContext.getData;
+import static com.data.DataContext.getData;
 import static com.ui.pages.home.HomePage.getHomePage;
 import static com.ui.pages.login.LoginPage.getLoginPage;
 
@@ -42,11 +40,11 @@ public class LoginTest extends BaseTest {
 
     @DataProvider(name = "credentials")
     public Object[][] credentials() {
-        String[] userBeans = data.getBeanNamesForType(ClientUser.class);
+        String[] userBeans = data.getBeanNamesForType(User.class);
         Object[][] result = new Object[userBeans.length][1];
         int i=0;
         for (String userBean:userBeans) {
-            ClientUser currentUser = data.getBean(userBean, ClientUser.class);
+            User currentUser = data.getBean(userBean, User.class);
             result[i][0] = currentUser;
             i++;
         }
@@ -64,7 +62,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test(dataProvider = "credentials", description = "Login by user")
-    public void loginByUsers(ClientUser user) {
+    public void loginByUsers(User user) {
         loginPage.act().loginByUser(user);
         homePage.verify().userLoggedIn(user);
     }

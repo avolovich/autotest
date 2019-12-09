@@ -1,6 +1,6 @@
-package com.data;
+package com.data.settings;
 
-import com.data.utils.FileProperties;
+import com.utils.FileProperties;
 
 import java.util.HashMap;
 

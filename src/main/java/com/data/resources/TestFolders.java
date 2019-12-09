@@ -1,13 +1,12 @@
 package com.data.resources;
 
-import com.data.utils.ResourceUtils;
-import com.dto.resources.Folder;
-import com.utils.TestUtils;
+import com.utils.ResourceUtils;
+import com.dto.Folder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class TestFoldersData {
+public class TestFolders {
 
     private final String prefix = "TestFolder_";
 

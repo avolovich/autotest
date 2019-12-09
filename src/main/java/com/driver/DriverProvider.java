@@ -1,6 +1,6 @@
 package com.driver;
 
-import com.data.CommonProperties;
+import com.data.settings.CommonProperties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 

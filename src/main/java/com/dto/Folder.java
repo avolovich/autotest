@@ -1,4 +1,4 @@
-package com.dto.resources;
+package com.dto;
 
 public class Folder {
 

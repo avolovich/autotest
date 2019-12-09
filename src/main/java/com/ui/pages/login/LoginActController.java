@@ -1,7 +1,7 @@
 package com.ui.pages.login;
 
 import com.driver.DriverProvider;
-import com.dto.ClientUser;
+import com.dto.User;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,10 +11,9 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.context.ApplicationContext;
 
-import java.io.IOException;
 import java.util.NoSuchElementException;
 
-import static com.DataContext.getData;
+import static com.data.DataContext.getData;
 
 // Class where we defined actions made over Login Page, e.g. enter some data into fields, click buttons,
 // select values from comboboxes
@@ -38,13 +37,13 @@ public class LoginActController {
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, 10), this);
     }
 
-    public void loginByUser(ClientUser user) {
+    public void loginByUser(User user) {
         enterUserId(user.getUsername())
                 .enterPassword(user.getPassword())
                 .clickLogin();
     }
 
-    public void loginByUserLocale(ClientUser user, Locale locale) {
+    public void loginByUserLocale(User user, Locale locale) {
         enterUserId(user.getUsername())
                 .enterPassword(user.getPassword())
                 .showLocaleTimeZone()
@@ -54,6 +53,8 @@ public class LoginActController {
 
     public LoginActController enterUserId(String userId) {
         userField.sendKeys(userId);
+        System.out.println(userField.getAttribute("aria-labelledby"));
+        System.out.println(userField.getCssValue("background-image"));
         return this;
     }
 
